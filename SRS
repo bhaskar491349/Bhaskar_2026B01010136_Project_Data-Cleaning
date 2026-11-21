@@ -13,8 +13,6 @@ GitHub Repository: https://github.com/bhaskar491349/Bhaskar_2026B01010136_Projec
  * Tools & Platforms: Visual Studio Code, Git, GitHub
  * Operating System: Windows 10 / 11
 3. Functional Requirements
- * Data Loading & Inspection (FR-1): Load Titanic-Dataset.csv and inspect dataset structure, data types, statistical summary, missing values, and duplicates using head(), info(), describe(), isna().sum(), and duplicated().sum().
- * Data Cleaning (FR-2):
    * Remove duplicate rows via drop_duplicates().
    * Drop non-predictive ID columns (PassengerId, Name, Ticket) and the sparsely populated Cabin column (77.1% empty).
    * Impute 177 missing Age values using grouped median by Pclass and Sex.
@@ -25,6 +23,3 @@ GitHub Repository: https://github.com/bhaskar491349/Bhaskar_2026B01010136_Projec
 4. Input & Output Summary
  * Input File: Titanic-Dataset.csv (891 rows × 12 columns, 866 missing cells, ~315 KB)
  * Output File: Titanic-Cleaned.csv (891 rows × 10 columns, 0 missing cells, ~14.5 KB)
-5. Non-Functional Requirements
- * Performance: Complete data inspection, cleaning, and CSV export executes in under 1 second using vectorized Pandas operations.
- * Data Integrity: Zero blank cells remain in the exported CSV, and numeric downcasting preserves exact data accuracy.
