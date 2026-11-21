@@ -1,0 +1,30 @@
+
+Software Requirements Specification (SRS)
+Project Title: Titanic Dataset Cleaning & Memory Optimization
+Student Name: Bhaskar
+Admission No.: 2026B01010136
+GitHub Repository: https://github.com/bhaskar491349/Bhaskar_2026B01010136_Project_Data-Cleaning
+1. Introduction
+ * Purpose: The purpose of this project (project.py) is to automate Exploratory Data Analysis (EDA), data cleaning, missing-value imputation, feature engineering, and memory optimization on the raw Titanic dataset (Titanic-Dataset.csv).
+ * Scope: The program processes 891 raw passenger records, removes missing and redundant fields, optimizes column data types, and generates a 100% clean output dataset (Titanic-Cleaned.csv).
+2. System & Software Requirements
+ * Programming Language: Python 3.10+
+ * Libraries Used: pandas
+ * Tools & Platforms: Visual Studio Code, Git, GitHub
+ * Operating System: Windows 10 / 11
+3. Functional Requirements
+ * Data Loading & Inspection (FR-1): Load Titanic-Dataset.csv and inspect dataset structure, data types, statistical summary, missing values, and duplicates using head(), info(), describe(), isna().sum(), and duplicated().sum().
+ * Data Cleaning (FR-2):
+   * Remove duplicate rows via drop_duplicates().
+   * Drop non-predictive ID columns (PassengerId, Name, Ticket) and the sparsely populated Cabin column (77.1% empty).
+   * Impute 177 missing Age values using grouped median by Pclass and Sex.
+   * Impute 2 missing Embarked values using statistical mode ('S').
+ * Feature Engineering (FR-3): Create FamilySize (SibSp + Parch + 1) and IsAlone (1 if FamilySize == 1, else 0).
+ * Memory Optimization (FR-4): Downcast integer columns to int8, float columns to float32, and low-cardinality text columns (Sex, Embarked) to category, reducing memory usage by over 95%.
+ * Data Export (FR-5): Export the final cleaned dataset (891 rows × 10 columns, 0 null cells) to Titanic-Cleaned.csv with index=False.
+4. Input & Output Summary
+ * Input File: Titanic-Dataset.csv (891 rows × 12 columns, 866 missing cells, ~315 KB)
+ * Output File: Titanic-Cleaned.csv (891 rows × 10 columns, 0 missing cells, ~14.5 KB)
+5. Non-Functional Requirements
+ * Performance: Complete data inspection, cleaning, and CSV export executes in under 1 second using vectorized Pandas operations.
+ * Data Integrity: Zero blank cells remain in the exported CSV, and numeric downcasting preserves exact data accuracy.
